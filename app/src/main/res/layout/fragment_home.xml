@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Introduce"
+                android:textColor="#000000"
+                android:textSize="24sp" />
+
+            <com.smarteist.autoimageslider.SliderView
+                android:id="@+id/imgae_slider"
+                android:layout_width="match_parent"
+                android:layout_height="229dp"
+                app:sliderAnimationDuration="2000"
+                app:sliderAutoCycleDirection="back_and_forth"
+                app:sliderAutoCycleEnabled="true"
+                app:sliderIndicatorAnimationDuration="2000"
+                app:sliderIndicatorGravity="center_horizontal|bottom"
+                app:sliderIndicatorMargin="15dp"
+                app:sliderIndicatorOrientation="horizontal"
+                app:sliderIndicatorPadding="3dp"
+                app:sliderIndicatorRadius="2dp"
+                app:sliderIndicatorSelectedColor="#FFF"
+                app:sliderIndicatorUnselectedColor="#5A5A5A"
+                app:sliderScrollTimeInSec="2"
+                app:sliderStartAutoCycle="true" />
+
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Recommend"
+                android:textColor="#000000"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/btn_new_comics"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:backgroundTint="#E91E63"
+                android:drawableLeft="@drawable/icons8_new_100"
+                android:text="New Comics"
+                android:textColor="#89FF00"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/btn_trending_comics"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:backgroundTint="#FFC107"
+                android:drawableLeft="@drawable/icons8_fire_100"
+                android:text="Trending Comics"
+                android:textColor="#F44336"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/btn_detective_comics"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:backgroundTint="#4CAF50"
+                android:text="Detective Comics"
+                android:drawableLeft="@drawable/icons8_detective_100"
+                android:textColor="#5C00FF"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/btn_fairy_tables"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:backgroundTint="#FF5722"
+                android:text="Fairy tales"
+                android:drawableLeft="@drawable/icons8_star_filled_100"
+                android:textColor="#00FB0A"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/btn_funny_comics"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:backgroundTint="#00BCD4"
+                android:text="Funny Comics"
+                android:drawableLeft="@drawable/icons8_homer_simpson_100"
+                android:textSize="30sp" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

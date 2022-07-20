@@ -1,0 +1,155 @@
+Detective Comics
+Fairy tales
+Funny Comics
+----------
+    int[] video = {R.raw.doraemon, R.raw.conan, R.raw.bayvienngoc};
+    int vd = 0;
+
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        VideoView videoView = (VideoView) view.findViewById(R.id.videoView);
+        Uri uri = Uri.parse("android.resource://"+getActivity().getPackageName()+"/"+video[vd]);
+        videoView.setVideoURI(uri);
+        videoView.start();
+        videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mp) {
+                vd++;
+                if(vd == 3){
+                    vd = 0;
+                }
+                videoView.stopPlayback();
+                //Uri uri = Uri.parse(String.valueOf(video[vd]));
+                Uri uri = Uri.parse("android.resource://"+getActivity().getPackageName()+"/"+video[vd]);
+                videoView.setVideoURI(uri);
+                videoView.requestFocus();
+                videoView.start();
+            }
+        });
+---------------
+
+package com.example.baithi.fragment;
+
+import android.app.ProgressDialog;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
+import com.example.baithi.R;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+
+import java.io.ByteArrayOutputStream;
+
+public class NewComicsFragment extends Fragment {
+
+    private View view;
+    private Button btn_upload;
+    private ImageView image;
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+
+        //initUi();
+
+        btn_upload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onClickUpload();
+            }
+        });
+
+        return inflater.inflate(R.layout.fragment_new_comic, container,false);
+    }
+
+    private void initUi(){
+        btn_upload = view.findViewById(R.id.floatingActionButton);
+        image = view.findViewById(R.id.image);
+    }
+
+    private void onClickUpload(){
+        /*
+        FirebaseStorage storage = FirebaseStorage.getInstance();
+        StorageReference storageRef = storage.getReference();
+
+        image.setDrawingCacheEnabled(true);
+        image.buildDrawingCache();
+        Bitmap bitmap = ((BitmapDrawable) image.getDrawable()).getBitmap();
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+        byte[] data = baos.toByteArray();
+
+        UploadTask uploadTask = storageRef.putBytes(data);
+        uploadTask.addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                // Handle unsuccessful uploads
+            }
+        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                // taskSnapshot.getMetadata() contains file metadata such as size, content-type, etc.
+                // ...
+            }
+        });
+
+         */
+
+
+    }
+
+}
+-----------------------------
+
+    private void showKK(){
+        FirebaseStorage storage = FirebaseStorage.getInstance();
+        StorageReference storageRef = storage.getReference();
+        StorageReference imagesRef = storageRef.child("New");
+        String name = imagesRef.getName();
+        //textView.setText(name);
+
+
+        imagesRef.listAll()
+                .addOnSuccessListener(new OnSuccessListener<ListResult>() {
+                    @Override
+                    public void onSuccess(ListResult listResult) {
+                        String text = "";
+                        for (StorageReference prefix : listResult.getPrefixes()) {
+                            // All the prefixes under listRef.
+                            // You may call listAll() recursively on them.
+                            text += prefix.getName().toString() + "\n";
+                            button = new Button(ComicsActivity.this);
+
+                        }
+                        textView.setText(text);
+                        for (StorageReference item : listResult.getItems()) {
+                            // All the items under imagesRef.
+
+                        }
+
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        // Uh-oh, an error occurred!
+                    }
+                });
+
+    }
+//-------------------------
+

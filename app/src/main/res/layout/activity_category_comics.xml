@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="5"
+    tools:context=".CategoryComicsActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="615dp"
+        android:layout_weight="5">
+
+        <LinearLayout
+            android:id="@+id/linear_layout_category"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" />
+    </ScrollView>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:layout_weight="1"
+        android:backgroundTint="#FFC107"
+        android:onClick="btnBack"
+        android:text="Back"
+        android:textColor="#F44336"
+        android:textSize="20sp" />
+</LinearLayout>

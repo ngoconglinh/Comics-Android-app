@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "973719025531",
+    "project_id": "oknahnah-5fa96",
+    "storage_bucket": "oknahnah-5fa96.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:973719025531:android:19da275680116333cd6fde",
+        "android_client_info": {
+          "package_name": "com.example.baithi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "973719025531-ttkab3iedrdk1dnj9uv4n7fl77ct23g5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.baithi",
+            "certificate_hash": "2e139434e19e292bba0cda74f9320f2c24065043"
+          }
+        },
+        {
+          "client_id": "973719025531-qg46ssg6es8lb7vjkkd4npgbgv779gs0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBF-TwtfYEqD9h7rzAqfvcvIbty2A1IG24"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "973719025531-qg46ssg6es8lb7vjkkd4npgbgv779gs0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
